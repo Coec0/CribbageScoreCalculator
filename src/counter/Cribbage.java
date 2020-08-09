@@ -22,6 +22,14 @@ public class Cribbage {
 
     private static int fifteens(List<Card> handAndCut) {
         int score = 0;
+        if(handAndCut.size() == 5){
+            int totalTempScore = 0;
+            for(Card c : handAndCut) {
+                totalTempScore += c.getRank().getScore();
+            }
+            if(totalTempScore == 15)
+                score+=2;
+        }
         Card tail = handAndCut.remove(handAndCut.size() - 1); //Remove last element to avoid array recalculation
         for (int i = 0; i < handAndCut.size(); i++) {
             int cardIScore = handAndCut.get(i).getRank().getScore();
