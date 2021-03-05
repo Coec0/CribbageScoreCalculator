@@ -94,7 +94,6 @@ public class Cribbage {
         for (int i = 0; i < listWithoutDuplicates.size() - 1; i++) {
             if (listWithoutDuplicates.get(i) + 1 == listWithoutDuplicates.get(i + 1)) {
                 run++;
-                array.add(listWithoutDuplicates.get(i + 1));
             } else {
                 if (maxRun < run) {
                     maxRun = run;
@@ -102,8 +101,8 @@ public class Cribbage {
                 }
                 run = 1;
                 array = new ArrayList<>();
-                array.add(listWithoutDuplicates.get(i));
             }
+            array.add(listWithoutDuplicates.get(i + 1));
         }
         if (maxRun < run)
             maxArray = array;
